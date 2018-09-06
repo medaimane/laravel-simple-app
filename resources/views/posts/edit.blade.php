@@ -14,9 +14,10 @@
                 <p class="card-text">Written at {{ $post->created_at->diffForHumans() }} by <a href="{{url('/users/'.$post->user->id)}}">{{$post->user->name}}</a></p>
                 <hr>
                 @if(!is_null($post))
-                    <form action="{{ url('/posts/'.$post->id.'/edit') }}" method="PUT" enctype="multipart/form-data">
+                    <form action="{{ url('/posts/'.$post->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        
+                        <input name="_method" type="hidden" value="PUT">
+
                         <div class="form-group">
                             <label for="title">Post Title</label>
                             <input class="form-control" type="text" name="title" value="{{$post->title}}" placeholder="Put the post title here!" required />
@@ -29,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <label for="body">Post Content</label>
-                            <textarea id="editor" class="form-control" name="body" aria-describedby="" required>
+                            <textarea id="editor" class="form-control" name="body" required>
                                 {{$post->description}}
                             </textarea>
                             <small class="form-text text-muted">Content is required</small>

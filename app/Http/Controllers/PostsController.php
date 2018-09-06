@@ -131,7 +131,45 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'body' => 'required',
+            'cover_image' => 'image|nullable|max:1999'
+        ]);
+
+        if(is_null($post)) {
+            return redirect('/posts/'.$post->id)->with('error', '504 : Post can not updated.');
+        }
+
+        // Handle image file upload
+        if($request->hasFile('cover_image')) {
+            // Get filename with extension_loaded
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+            
+            // Get just filename
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            // File name to store
+            $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
+
+            // Upload the file
+            $path = $request->file('cover_image')->storeAs('public/posts', $fileNameToStore);
+
+            // Set new file
+            $post->cover_image = $fileNameToStore;
+        }
+
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->body = $request->body;
+        
+        $post->update();
+
+        return redirect('/posts/'.$post->id)->with('success', 'Post updated with success');
     }
 
     /**

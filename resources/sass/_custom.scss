@@ -24,11 +24,26 @@ body {
     height: auto;
 }
 
-.img_container {
+.img-container {
     width: 285px;
     min-height: 200px;
     max-height: auto;
     float: left;
     margin: 3px;
+    padding: 3px;
+}
+
+.img-fix-show {
+    max-width: 100%;
+    height: auto;  
+}
+
+.img-container-show {
+    width: 800px;
+    min-height: 300px;
+    max-height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     padding: 3px;
 }

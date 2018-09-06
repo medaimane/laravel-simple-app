@@ -27,6 +27,7 @@
         @include('includes.navbar')
        
         <main class="py-5">
+            @include('includes.notification')
             @yield('content')
         </main>
     </div>

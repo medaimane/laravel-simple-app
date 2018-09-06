@@ -10,7 +10,7 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col col-sm-4">
-                            <div class="img_container">
+                            <div class="img-container">
                                 <img class="img-fix" src="{{asset('storage/posts/'.$post->cover_image)}}" alt="Image Not Found">
                             </div>
                         </div>

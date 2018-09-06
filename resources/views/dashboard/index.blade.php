@@ -38,7 +38,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col col-sm-4">
-                                            <div class="img_container">
+                                            <div class="img-container">
                                                 <img class="img-fix" src="{{asset('storage/posts/'.$post->cover_image)}}" alt="Image Not Found">
                                             </div>
                                         </div>
@@ -47,13 +47,34 @@
                                             <div class="btn-group float-right">
                                                 <a class="btn btn-sm btn-outline-info" href="{{url('/posts/'.$post->id)}}">{{__('Show')}}</a>
                                                 <a class="btn btn-sm btn-outline-secondary" href="{{url('/posts/'.$post->id.'/edit')}}">{{__('Edit')}}</a>
-                                                <a class="btn btn-sm btn-outline-danger" href="#">{{__('Delete')}}</a>
+                                                <a class="btn btn-sm btn-outline-danger" href="#" data-toggle="modal" data-target="#modal-delete{{$post->id}}">{{__('Delete')}}</a>
                                             </div>
                                             <p>{{ $post->description }}</p>
                                             <small>Written at {{ $post->created_at->diffForHumans() }} by <a href="{{url('/users/'.$post->user->id)}}">{{$post->user->name}}</a></small>
                                         </div>
                                     </div>
                                 </li>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal-delete{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">Delete Post</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body text-danger">
+                                                Are you sure to delete this post !
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-outline-danger">Confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endforeach
                                 <li class="list-group-item">{{$posts->links()}}</li>
                             </ul>
