@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -180,6 +181,19 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        
+        // Check for the correct user
+        if(auth()->user()->id != $post->user_id ) {
+            return redirect('/dashboard')->with('error', 'Unauthorised action');
+        }
+        
+        if($post->cover_image != 'default.jpg') {
+            // Delete image
+            Storage::delete('storage/posts/'.$post->cover_image);
+        }
+
+        if($post->delete()) {
+            return redirect('/dashboard')->with('success', 'Post deleted with success');
+        }
     }
 }

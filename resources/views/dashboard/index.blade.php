@@ -70,7 +70,11 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                                                <button type="button" class="btn btn-outline-danger">Confirm</button>
+                                                <form action="{{url('/posts/'.$post->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-outline-danger">Confirm</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

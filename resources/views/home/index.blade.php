@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
+    <div class="container">
         <section class="jumbotron text-center">
             <div class="container">
                 <h1 class="jumbotron-heading">Blog App</h1>

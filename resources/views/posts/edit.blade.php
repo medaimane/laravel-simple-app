@@ -16,7 +16,9 @@
                 @if(!is_null($post))
                     <form action="{{ url('/posts/'.$post->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input name="_method" type="hidden" value="PUT">
+                        <!--<input name="_method" type="hidden" value="PUT">-->
+
+                        @method('PUT')
 
                         <div class="form-group">
                             <label for="title">Post Title</label>
