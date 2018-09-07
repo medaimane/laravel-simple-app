@@ -7,13 +7,13 @@
         <div class="card">
             <div class="card-header">
                 New Post
-                <a class="btn btn-sm btn-outline-primary float-right" href="{{url('/dashboard')}}">Dashboard &raquo;</a>
+                <a class="btn btn-sm btn-outline-primary float-right" href="{{route('dashboard')}}">Dashboard &raquo;</a>
             </div>
             <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 
-                <form action="{{ url('/posts') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="form-group">

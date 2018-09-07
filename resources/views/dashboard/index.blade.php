@@ -28,7 +28,7 @@
                     <div class="p-1 my-1">
                         <h4 class="float-left"><u>Your Posts</u></h4>
                         <div class="d-flex flex-row-reverse bd-highlight">
-                            <a class="btn btn-sm btn-outline-success" href="{{url('/posts/create')}}">Create Post</a>
+                            <a class="btn btn-sm btn-outline-success" href="{{route('posts.create')}}">Create Post</a>
                         </div>
                     </div>
                     <div>
@@ -45,12 +45,12 @@
                                         <div class="col col-sm-8">
                                             <h4>{{ $post->title }}</h4>
                                             <div class="btn-group float-right">
-                                                <a class="btn btn-sm btn-outline-info" href="{{url('/posts/'.$post->id)}}">{{__('Show')}}</a>
-                                                <a class="btn btn-sm btn-outline-secondary" href="{{url('/posts/'.$post->id.'/edit')}}">{{__('Edit')}}</a>
+                                                <a class="btn btn-sm btn-outline-info" href="{{route('posts.show', ['id' => $post->id])}}">{{__('Show')}}</a>
+                                                <a class="btn btn-sm btn-outline-secondary" href="{{route('posts.edit', ['id' => $post->id])}}">{{__('Edit')}}</a>
                                                 <a class="btn btn-sm btn-outline-danger" href="#" data-toggle="modal" data-target="#modal-delete{{$post->id}}">{{__('Delete')}}</a>
                                             </div>
                                             <p>{{ $post->description }}</p>
-                                            <small>Written at {{ $post->created_at->diffForHumans() }} by <a href="{{url('/users/'.$post->user->id)}}">{{$post->user->name}}</a></small>
+                                            <small>Written at {{ $post->created_at->diffForHumans() }} by <a href="{{route('users.show', [$post->user])}}">{{$post->user->name}}</a></small>
                                         </div>
                                     </div>
                                 </li>
@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                                                <form action="{{url('/posts/'.$post->id)}}" method="POST">
+                                                <form action="{{route('posts.destroy', [$post])}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-outline-danger">Confirm</button>
@@ -85,7 +85,7 @@
                         @else
                             <ul class="list-group">  
                                 <li class="list-group-item">
-                                    <p>__('No Post Found')</p>
+                                    <p>{{__('No Post Found')}}</p>
                                 </li>
                             </ul>
                         @endif

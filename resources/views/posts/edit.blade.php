@@ -7,17 +7,15 @@
         <div class="card">
             <div class="card-header">
                 Update Your Post
-                <a class="btn btn-sm btn-outline-primary float-right" href="{{url('/dashboard')}}">Dashboard &raquo;</a>
+                <a class="btn btn-sm btn-outline-primary float-right" href="{{route('dashboard')}}">Dashboard &raquo;</a>
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>
-                <p class="card-text">Written at {{ $post->created_at->diffForHumans() }} by <a href="{{url('/users/'.$post->user->id)}}">{{$post->user->name}}</a></p>
+                <p class="card-text">Written at {{ $post->created_at->diffForHumans() }} by <a href="{{route('users.show', [$post->user])}}">{{$post->user->name}}</a></p>
                 <hr>
                 @if(!is_null($post))
-                    <form action="{{ url('/posts/'.$post->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('posts.update', $post) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <!--<input name="_method" type="hidden" value="PUT">-->
-
                         @method('PUT')
 
                         <div class="form-group">

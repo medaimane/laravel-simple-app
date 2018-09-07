@@ -20,16 +20,14 @@ Route::prefix('admin')->group(function () {
     // Matches The "/admin/users" URL
     Route::middleware(['auth'])->group(function () {
         Route::get('user/profile', function () {
-            // Uses first & second Middleware
+            // Uses auth Middleware
         });
 
-        Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-
+        Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::resource('posts', 'PostsController');
         Route::resource('countries', 'CountriesController');
         Route::resource('roles', 'RolesController');
         Route::resource('users', 'UsersController');
-        Route::resource('comments', 'CommentsController');
     });
 });
 
