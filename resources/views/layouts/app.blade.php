@@ -24,12 +24,15 @@
 </head>
 <body>
     <div id="app">
-        @include('includes.navbar')
-       
+        <header>
+            @include('includes.navbar')
+        </header>
         <main class="py-5">
             @include('includes.notification')
             @yield('content')
         </main>
+
+        @include('includes.footer')
     </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">

@@ -12,18 +12,15 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/posts', 'PostsController@index');
+Route::get('/posts', 'PostsController@index')->name('public.posts');
 
 Auth::routes();
 
 Route::prefix('admin')->group(function () {
     // Matches The "/admin/users" URL
     Route::middleware(['auth'])->group(function () {
-        Route::get('user/profile', function () {
-            // Uses auth Middleware
-        });
-
         Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::get('profile/{username}','UsersController@profile')->name('users.profile');
         Route::resource('posts', 'PostsController');
         Route::resource('countries', 'CountriesController');
         Route::resource('roles', 'RolesController');

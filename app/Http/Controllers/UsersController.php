@@ -25,7 +25,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return User::all()->first()->countries;
     }
 
     /**
@@ -93,6 +93,11 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Role $role)
+    {
+        //
+    }
+
+    public function profile(User $user) 
     {
         //
     }
