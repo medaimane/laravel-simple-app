@@ -16,9 +16,9 @@
                         </div>
                         <div class="col col-sm-8">
                             <h4>{{ $post->title }}</h4>
-                            <a class="btn btn-sm btn-outline-primary float-right" href="{{url('/posts/'.$post->id)}}">Show &raquo;</a>
+                            <a class="btn btn-sm btn-outline-primary float-right" href="{{route('posts.show', [$post])}}">Show &raquo;</a>
                             <p>{{ $post->description }}</p>
-                            <small>Written at {{ $post->created_at->diffForHumans() }} by <a href="{{url('/users/'.$post->user->id)}}">{{$post->user->name}}</a></small>
+                            <small>Written at {{ $post->created_at->diffForHumans() }} by <a href="{{route('users.show', [$post->user])}}">{{$post->user->name}}</a></small>
                         </div>
                     </div>
                 </li>

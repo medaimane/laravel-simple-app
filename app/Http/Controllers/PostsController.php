@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'index']);
+        // $this->middleware('auth', ['except' => 'index']);
     }
 
     /**
@@ -88,9 +88,9 @@ class PostsController extends Controller
         $post->cover_image = $fileNameToStore;
 
         if($post->save()) {
-            return redirect('/dashboard')->with('success', '200 : Post created with success');
+            return redirect()->route('dashboard')->with('success', '200 : Post created with success');
         } else {
-            return redirect('/dashboard')->with('error', '501 : Post can not created');
+            return redirect()->route('dashboard')->with('error', '501 : Post can not created');
         }
     }
 
@@ -140,7 +140,7 @@ class PostsController extends Controller
         ]);
 
         if(is_null($post)) {
-            return redirect('/posts/'.$post->id)->with('error', '504 : Post can not updated.');
+            return redirect()->route('posts.show', $post)->with('error', '504 : Post can not updated.');
         }
 
         // Handle image file upload
@@ -170,7 +170,7 @@ class PostsController extends Controller
         
         $post->update();
 
-        return redirect('/posts/'.$post->id)->with('success', 'Post updated with success');
+        return redirect()->route('posts.show', $post)->with('success', 'Post updated with success');
     }
 
     /**
@@ -184,7 +184,7 @@ class PostsController extends Controller
         
         // Check for the correct user
         if(auth()->user()->id != $post->user_id ) {
-            return redirect('/dashboard')->with('error', 'Unauthorised action');
+            return redirect()->route('dashboard')->with('error', 'Unauthorised action');
         }
         
         if($post->cover_image != 'default.jpg') {
@@ -193,7 +193,7 @@ class PostsController extends Controller
         }
 
         if($post->delete()) {
-            return redirect('/dashboard')->with('success', 'Post deleted with success');
+            return redirect()->route('dashboard')->with('success', 'Post deleted with success');
         }
     }
 }

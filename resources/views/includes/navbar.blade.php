@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -42,7 +42,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             
-                            <a class="dropdown-item" href="{{ url('/dashboard') }}">Dashboard</a>
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                             
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">

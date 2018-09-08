@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -23,7 +25,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return User::all()->first()->countries;
     }
 
     /**
@@ -53,9 +55,12 @@ class UsersController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show(User $user)
     {
-        //
+        $data = [
+            'users' => $user
+        ];
+        return $data;
     }
 
     /**
@@ -91,4 +96,10 @@ class UsersController extends Controller
     {
         //
     }
+
+    public function profile(User $user) 
+    {
+        //
+    }
+
 }
