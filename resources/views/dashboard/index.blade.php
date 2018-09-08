@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="d-flex align-items-center p-3 my-2 text-white-50 bg-purple rounded shadow-sm">
-                <img class="mr-3" src="{{asset('storage/users/user.jpg')}}" alt="" width="48" height="48">
+                <img class="mr-3" src="{{asset('storage/users/default.jpg')}}" alt="" width="48" height="48">
                 <div class="lh-100">
                     <h6 class="mb-0 text-white lh-100">{{Auth::user()->name}}</h6>
                     <small>Since {{Auth::user()->created_at->diffForHumans()}}</small>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="card-header">
                     <h3>Dashboard</h3>
@@ -60,7 +60,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">Delete Post</h5>
+                                                <h5 class="modal-title"><u>Delete Post</u></h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -83,7 +83,7 @@
                                 <li class="list-group-item">{{$posts->links()}}</li>
                             </ul>
                         @else
-                            <ul class="list-group">  
+                            <ul class="list-group">
                                 <li class="list-group-item">
                                     <p>__('No Post Found')</p>
                                 </li>

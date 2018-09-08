@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel5.6-blog`
+-- Database: `laravel5.6-blog` 06/09/2018
 --
 
 -- --------------------------------------------------------
