@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Role;
+use App\Post;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -97,9 +98,13 @@ class UsersController extends Controller
         //
     }
 
-    public function profile(User $user) 
+    public function profile($username) 
     {
-        //
+        $data = [
+            'user' => auth()->user(),
+            'posts' => Post::OrderBy('updated_at', 'desc')->where('user_id', auth()->user()->id)->limit(4)->get()
+        ];
+        return view('users.profile')->with($data);
     }
 
 }

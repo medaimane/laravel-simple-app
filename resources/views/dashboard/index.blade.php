@@ -4,13 +4,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="d-flex align-items-center p-3 my-2 text-white-50 bg-purple rounded shadow-sm">
-                <img class="mr-3" src="{{asset('storage/users/user.jpg')}}" alt="" width="48" height="48">
-                <div class="lh-100">
-                    <h6 class="mb-0 text-white lh-100">{{Auth::user()->name}}</h6>
-                    <small>Since {{Auth::user()->created_at->diffForHumans()}}</small>
-                </div>
-            </div>
             
             <div class="card">
                 <div class="card-header">

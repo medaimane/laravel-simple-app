@@ -28,10 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     public function getNameAttribute($value)
     {
-        return strtoupper($value);
-        // return ucwords($value);
+        // return strtoupper($value);
+        return ucwords($value);
     }
 
     public function countries() 

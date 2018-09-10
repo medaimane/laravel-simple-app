@@ -13927,6 +13927,7 @@ try {
   window.$ = window.jQuery = __webpack_require__(4);
 
   __webpack_require__(16);
+  // require('@fortawesome/fontawesome-free');
   window.ClassicEditor = __webpack_require__(17);
 } catch (e) {}
 

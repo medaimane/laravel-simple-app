@@ -12,6 +12,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    // require('@fortawesome/fontawesome-free');
     window.ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
 
 } catch (e) {}
