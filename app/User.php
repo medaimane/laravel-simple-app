@@ -35,9 +35,9 @@ class User extends Authenticatable
         return ucwords($value);
     }
 
-    public function countries() 
+    public function country() 
     {
-        return $this->hasOne('App\Country');
+        return $this->belongsTo('App\Country');
     }
     
     public function posts()

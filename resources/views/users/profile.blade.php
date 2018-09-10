@@ -8,7 +8,7 @@
             <img class="mb-0 rounded" src="{{asset('storage/users/user.jpg')}}" alt="" width="150" height="150">
         </div>
         <div class="text-center">
-            <h2 class="mb-0">{{$user->name}}</h2>
+            <h2 class="mb-0">{{$user->name}}<small> from {{$user->country->name}}</small></h2>
             <small>Since {{$user->created_at->diffForHumans()}}</small>
         </div>
     </div>

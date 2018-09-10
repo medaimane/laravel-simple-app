@@ -60,7 +60,7 @@ class CountriesController extends Controller
      */
     public function show(Country $country)
     {
-        //
+        return $country->users;
     }
 
     /**

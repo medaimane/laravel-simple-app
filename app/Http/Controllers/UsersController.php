@@ -100,6 +100,11 @@ class UsersController extends Controller
 
     public function profile($username) 
     {
+
+        if(auth()->user()->username !== $username) {
+            return redirect()->route('users.profile', auth()->user()->username);
+        }
+
         $data = [
             'user' => auth()->user(),
             'posts' => Post::OrderBy('updated_at', 'desc')->where('user_id', auth()->user()->id)->limit(4)->get()
