@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/posts', 'PostsController@index')->name('public.posts');
+Route::get('/pages/{page}', 'PagesController@index')->name('pages.page');
 
 Auth::routes();
 
@@ -30,7 +31,7 @@ Route::prefix('admin')->group(function () {
 
 // Fallback Routes
 Route::fallback(function () {
-    return abort(200);
+    return abort(501);
 });
 
 // +++++-----+++++++
