@@ -8,7 +8,10 @@
             <div class="card">
                 <div class="card-header">
                     <h3>Dashboard</h3>
-                    <a href="{{route('users.profile', Auth::user()->username)}}"><small class="float-right">{{__('You are logged in!')}}</small></a>
+                    <small class="float-right">
+                        <img width="10" src="{{asset('storage/others/blue.svg')}}" alt="" class="mr-1 rounded">
+                        <a href="{{route('users.profile', Auth::user()->username)}}">Your Profile</a>
+                    </small>
                 </div>
 
                 <div class="card-body">

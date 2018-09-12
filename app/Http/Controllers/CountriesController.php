@@ -28,7 +28,7 @@ class CountriesController extends Controller
         $data = [
             'countries' => Country::OrderBy('name', 'asc')->paginate(2)
         ];
-        return $data;
+        return view('countries.index')->with($data);
     }
 
     /**
@@ -60,7 +60,7 @@ class CountriesController extends Controller
      */
     public function show(Country $country)
     {
-        return $country->users;
+        return view('countries.show')->with([$country]);
     }
 
     /**
