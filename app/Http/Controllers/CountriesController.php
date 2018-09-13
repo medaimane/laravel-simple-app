@@ -28,7 +28,7 @@ class CountriesController extends Controller
         $data = [
             'countries' => Country::OrderBy('name', 'asc')->paginate(2)
         ];
-        return view('countries.index')->with($data);
+        return view('countries.index')->with($datas);
     }
 
     /**

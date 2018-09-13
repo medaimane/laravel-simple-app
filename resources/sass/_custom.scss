@@ -1,8 +1,17 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+
 /* Show it is fixed to the top 
 -------------------------------------------------- */
+html,
 body {
-  min-height: 75rem;
+  min-height: 100%;
+}
+
+body {
   padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #5a5a5a;
 }
 
 /* Dashboard */
@@ -13,7 +22,6 @@ body {
 .lh-100 { line-height: 1; }
 
 /* Posts */
-
 .posts-body {
     padding: 0.5rem;
 }
@@ -55,45 +63,8 @@ body {
     padding: 3px;
 }
 
-/*Profile cover image*/
 
-/* GLOBAL STYLES
--------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
-body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
-}
-
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 32rem;
-  background-color: #777;
-}
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
-}
-
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -147,4 +118,36 @@ body {
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+
+
+/* Login form */
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 150px auto 0px auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
