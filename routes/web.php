@@ -31,7 +31,7 @@ Route::prefix('admin')->group(function () {
 
 // Fallback Routes
 Route::fallback(function () {
-    return abort(501);
+    return abort(404);
 });
 
 // +++++-----+++++++

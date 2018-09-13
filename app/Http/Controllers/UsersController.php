@@ -26,7 +26,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return User::all()->first()->countries;
+        return User::all();
     }
 
     /**
@@ -106,7 +106,7 @@ class UsersController extends Controller
         }
 
         $data = [
-            'user' => auth()->user(),
+            'user' => auth()->user()->setAppends(['is_admin' => 'yes']),
             'posts' => Post::OrderBy('updated_at', 'desc')->where('user_id', auth()->user()->id)->limit(4)->get()
         ];
         return view('users.profile')->with($data);

@@ -139,7 +139,7 @@ body {
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: 150px auto 0px auto;
+  margin: 120px auto 0px auto;
 }
 
 .form-signin .checkbox {
@@ -159,14 +159,60 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signin input[id="email-login"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.form-signin input[id="password-login"] {
   margin-bottom: 10px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+/*registration inputs*/
+
+.form-signin input[id="name"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[id="username"] {
+  margin-bottom: -1px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin select {
+  margin-bottom: -1px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[id="password"] {
+  margin-bottom: -1px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[id="password-confirm"] {
+  margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
