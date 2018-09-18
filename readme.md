@@ -9,7 +9,7 @@
 
 ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects.
+Simple blog application using laravel framework, bootstrap and ckeditor4.
 
 Version used for this project is 5.7.
 
@@ -19,4 +19,4 @@ Mohamed Aimane Skhairi
 
 ## License
 
-This Laravel Simple App is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [GPL-3.0 license](https://opensource.org/licenses/GPL-3.0).
