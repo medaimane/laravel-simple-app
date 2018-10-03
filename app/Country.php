@@ -19,6 +19,10 @@ class Country extends Model
         return $this->hasMany('App\User');
     }
 
+    public function posts() {
+        return $this->hasManyThrough('App\Post', 'App\User', 'country_id', 'user_id');
+    }
+
     public function commentable() 
     {
 
