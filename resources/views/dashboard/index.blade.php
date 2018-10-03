@@ -105,7 +105,9 @@
                                         <div class="card-body">
                                             <h4 class="card-title"><strong class="text-gray-dark">{{$role->name}}</strong></h4>
                                             <p class="card-text text-muted">{{$role->description}}</p>
-                                            <img class="card-img-top" src="{{asset('storage/posts/default.jpg')}}" width="100px" alt="Card image cap">
+                                            <a href="{{route('roles', $role->id)}}">
+                                                <img class="card-img-top" src="{{asset('storage/posts/default.jpg')}}" width="100px" alt="Card image cap">
+                                            </a>
                                         </div>
                                     </div>
                                 @endforeach
