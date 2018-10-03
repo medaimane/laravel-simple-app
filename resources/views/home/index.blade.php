@@ -27,6 +27,10 @@
         @endguest
 
 
+        <div class="row p-2 mb-0">
+            <h4><u>Public posts</u></h4>
+        </div>
+
         <!-- Marketing messaging and featurettes
         ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -35,23 +39,27 @@
 
         <!-- START THE FEATURETTES -->
 
-        {{-- <hr class="featurette-divider"> --}}
+        <hr class="featurette-divider">
 
         @if (count($posts) > 0)
          @foreach ($posts as $post)
             <div class="row featurette">
-                <div class="col-md-7">
+                <div class="col-md-7 m-auto">
                     <h2 class="featurette-heading">{{$post->title}}</h2>
                     <h4><span class="text-muted">{{$post->description}}</span></h4>
                     <p class="lead">{!!$post->body!!}</p>
                 </div>
-                <div class="col-md-5 mt-5">
+                <div class="col-md-5 m-auto">
                     <img class="featurette-image img-fluid mx-auto" src="{{asset('storage/posts/'.$post->cover_image)}}" alt="Generic placeholder image">
                 </div>
             </div>
 
             <hr class="featurette-divider">
          @endforeach
+        @else
+            <div class="row featurette">
+                <h2 class="text-muted">{{ __('No Post created yet!') }}</h2>       
+            </div>
         @endif
         <!-- /END THE FEATURETTES -->
 
