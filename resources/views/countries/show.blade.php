@@ -23,35 +23,25 @@
             </div>
 
             <div class="my-3 p-3 bg-white rounded shadow-sm">
-        
                 <h5 class="border-bottom border-gray pb-2 mb-0">Morocco People Posts</h5>
-                @if(!is_null($country->posts) && count($country->posts) > 0)
-                    @foreach($country->posts as $post)
-                    <div class="media text-muted pt-3">
-                        <div>
-                            <img width="100" src="{{asset('storage/posts/'.$post->cover_image)}}" alt="" class="mr-2 rounded">
-                        </div>
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                        <div class="d-flex justify-content-between align-items-center w-100">
-                            <h4><strong class="text-gray-dark">{{ $post->title }}</strong></h4>
-                            <a href="{{route('posts.show', $post->id)}}">View more</a>
-                        </div>
-                        <span class="d-block">{{ $post->description }}</span>
-                        <span class="d-block">Written at {{ $post->created_at->diffForHumans() }}</span>
-                        </div>
-                    </div>
-                    @endforeach
-                    <small class="d-block text-right mt-3">
-                        <span class="badge badge-lg badge-pill badge-primary">{{count($country->posts)}} Posts</span>
-                    </small>
-                @else
-                    <div class="media text-muted pt-3"> 
-                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            {{__('No Post Found')}}
-                        </p>
-                    </div>
-                @endif
-        
+                <div class="row d-flex justify-content-center m-auto">
+                    @if(!is_null($country->posts) && count($country->posts) > 0)
+                        @foreach($country->posts as $post)
+                            <div class="col-md-3 card m-2">
+                                <div class="card-body">
+                                    <h4 class="card-title"><strong class="text-gray-dark">{{ $post->title }}</strong></h4>
+                                    <p class="card-text text-muted">Written at {{ $post->created_at->diffForHumans() }}</p>
+                                    <a href="{{route('posts.show', $post->id)}}">
+                                        <img width="100" src="{{asset('storage/posts/'.$post->cover_image)}}" alt="" class="mr-2 rounded">
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+                <small class="d-block text-right mt-3">
+                    <span class="badge badge-lg badge-pill badge-primary">{{count($country->posts)}} Posts</span>
+                </small>
             </div>
 
         </div>
