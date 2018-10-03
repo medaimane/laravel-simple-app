@@ -60,7 +60,9 @@ class CountriesController extends Controller
      */
     public function show(Country $country)
     {
-        return view('countries.show')->with([$country]);
+        return view('countries.show')->with([
+            'country' => $country
+        ]);
     }
 
     /**

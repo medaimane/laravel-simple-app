@@ -30,7 +30,7 @@ Route::prefix('admin')->group(function () {
     // Matches The "/admin/users" URL
     Route::middleware(['auth'])->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
-        Route::get('profile','UsersController@profile')->name('users.profile');
+        Route::get('/profile','UsersController@profile')->name('users.profile');
         Route::resource('posts', 'PostsController');
         Route::resource('countries', 'CountriesController');
         Route::resource('roles', 'RolesController');
