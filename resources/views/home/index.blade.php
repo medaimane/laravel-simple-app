@@ -28,7 +28,12 @@
 
 
         <div class="row p-2 mb-0">
-            <h4><u>Public posts</u></h4>
+            <div class="col-md-10">
+                <h4><u>Public posts</u></h4>
+            </div>
+            <div class="col-md-2">
+                <a class="float-right" href="{{route('posts.create')}}">Make a post</a>
+            </div>
         </div>
 
         <!-- Marketing messaging and featurettes
@@ -53,7 +58,6 @@
                     <img class="featurette-image img-fluid mx-auto" src="{{asset('storage/posts/'.$post->cover_image)}}" alt="Generic placeholder image">
                 </div>
             </div>
-
             <hr class="featurette-divider">
          @endforeach
         @else
@@ -61,7 +65,15 @@
                 <h2 class="text-muted">{{ __('No Post created yet!') }}</h2>       
             </div>
         @endif
+
+        </div>
         <!-- /END THE FEATURETTES -->
+
+        <div class="row p-2 mb-0">
+            <div class="col-md-12 m-auto">
+                <a class="float-right" href="{{route('posts.index')}}">All posts</a>
+            </div>
+        </div>
 
     </div> <!--/.container -->
 @endsection
