@@ -28,13 +28,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+    /**
+     * Attributes Accessors & Mutators
+     */
     public function getNameAttribute($value)
     {
         // return strtoupper($value);
         return ucwords($value);
     }
 
+    /**
+     * Countries
+     */
     public function countries() 
     {
         return $this->hasOne('App\Country');
@@ -45,6 +50,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Country');
     }
     
+    /**
+     * Posts
+     */
     public function posts()
     {
         return $this->hasMany('App\Post');
@@ -57,11 +65,17 @@ class User extends Authenticatable
         }
     }
 
+    /**
+     * Comments
+     */
     public function comments() 
     {
         return $this->hasMany('App\Comment');
     }
 
+    /**
+     * Roles
+     */
     public function roles()
     {
         return $this->belongsToMany('App\Role');
