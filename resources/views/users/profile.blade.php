@@ -51,12 +51,11 @@
         <div class="row m-auto">
             @if (count($user->roles) > 0)
                 @foreach ($user->roles as $role)
-                    <div class="card mt-2" style="width: 18rem;">
-                        <img class="card-img-top" src="{{asset('storage/posts/default.jpg')}}" width="100px" alt="Card image cap">
+                    <div class="col-md-3 card m-2">
                         <div class="card-body">
-                            <h5 class="card-title">{{$role->name}}</h5>
-                            <p class="card-text">{{$role->description}}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h4 class="card-title"><strong class="text-gray-dark">{{$role->name}}</strong></h4>
+                            <p class="card-text text-muted">{{$role->description}}</p>
+                            <img class="card-img-top" src="{{asset('storage/posts/default.jpg')}}" width="100px" alt="Card image cap">
                         </div>
                     </div>
                 @endforeach

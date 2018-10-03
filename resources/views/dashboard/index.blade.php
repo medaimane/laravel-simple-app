@@ -97,6 +97,20 @@
 
                     <div class="p-2 my-2">
                         <h4><u>Your Roles</u></h4>
+
+                        <div class="row m-auto">
+                            @if (count(Auth::user()->roles) > 0)
+                                @foreach (Auth::user()->roles as $role)
+                                    <div class="col-md-3 card m-2">
+                                        <div class="card-body">
+                                            <h4 class="card-title"><strong class="text-gray-dark">{{$role->name}}</strong></h4>
+                                            <p class="card-text text-muted">{{$role->description}}</p>
+                                            <img class="card-img-top" src="{{asset('storage/posts/default.jpg')}}" width="100px" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
 
                 </div>
