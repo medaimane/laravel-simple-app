@@ -46,5 +46,23 @@
 
     </div>
 
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h5 class="border-bottom border-gray pb-2 mb-0">Your Roles</h5>
+        <div class="row m-auto">
+            @if (count($user->roles) > 0)
+                @foreach ($user->roles as $role)
+                    <div class="card mt-2" style="width: 18rem;">
+                        <img class="card-img-top" src="{{asset('storage/posts/default.jpg')}}" width="100px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$role->name}}</h5>
+                            <p class="card-text">{{$role->description}}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+    </div>
+
 </div>
 @endsection

@@ -42,7 +42,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             
-                            <a class="dropdown-item" href="{{ route('users.profile', Auth::user()->username) }}">
+                            <a class="dropdown-item" href="{{ route('users.profile') }}">
                                 <i class="far fa-user-circle"></i> {{ __('Profile') }}
                             </a>
 
