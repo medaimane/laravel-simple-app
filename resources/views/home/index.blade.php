@@ -20,7 +20,8 @@
                 <h1 class="jumbotron-heading"><small class="text-muted">Blogger</small> {{Auth::user()->name}} <small class="text-muted">from {{Auth::user()->country->name}}</small></h1>
                 <p class="lead text-muted">Written {{count(Auth::user()->posts)}} posts on {{Auth::user()->created_at->diffForHumans()}}</p>
                 <p>
-                    <a href="{{route('dashboard')}}" class="btn btn-success my-2">Go To Dashboard</a>
+                    <a href="{{route('dashboard')}}" class="btn btn-primary my-2">Profile</a>
+                    <a href="{{route('dashboard')}}" class="btn btn-success my-2">Dashboard</a>
                 </p>
             </div>
         </section>
@@ -71,7 +72,7 @@
 
         <div class="row p-2 mb-0">
             <div class="col-md-12 m-auto">
-                <a class="float-right" href="{{route('posts.index')}}">All posts</a>
+                <a class="float-right" href="{{route('public.posts')}}">All posts</a>
             </div>
         </div>
 

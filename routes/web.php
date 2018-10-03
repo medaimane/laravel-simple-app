@@ -11,12 +11,21 @@
 |
 */
 
+/**
+ * Public Routes
+ */
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/posts', 'PostsController@index')->name('public.posts');
 Route::get('/pages/{page}', 'PagesController@index')->name('pages.page');
 
+/**
+ * Default Auth Routes
+ */
 Auth::routes();
 
+/**
+ * Auth/Dashboard Routes
+ */
 Route::prefix('admin')->group(function () {
     // Matches The "/admin/users" URL
     Route::middleware(['auth'])->group(function () {
@@ -29,12 +38,14 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-// Fallback Routes
+/**
+ * Fallback Routes
+ */
 Route::fallback(function () {
     return abort(404);
 });
 
-// +++++-----+++++++
+// +++++--Some Docs---+++++++
 
 // Route::get('users/{id}/posts', function ($id) {
 //     $user = App\User::findOrFail($id);
