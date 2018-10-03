@@ -15,11 +15,13 @@ class PagesController extends Controller
     public function index($page)
     {
         if($page === 'privacy') {
-            return view('pages.privacy');
+            return view('pages.'.$page);
         } else if($page === 'terms') {
-            return view('pages.terms');
+            return view('pages.'.$page);
+        } else if($page === 'support') {
+            return view('pages.'.$page);
         } else {
-            return view('pages.support');
+            return abort(404);
         }
     }
 
