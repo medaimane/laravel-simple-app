@@ -58,10 +58,9 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $data = [
-            'users' => $user
-        ];
-        return $data;
+        return view('users.show')->with([
+            'user' => $user
+        ]);
     }
 
     /**
@@ -98,18 +97,17 @@ class UsersController extends Controller
         //
     }
 
-    public function profile($username) 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function profile() 
     {
-
-        if(auth()->user()->username !== $username) {
-            return redirect()->route('users.profile', auth()->user()->username);
-        }
-
-        $data = [
-            'user' => auth()->user()->setAppends(['is_admin' => 'yes']),
-            'posts' => Post::OrderBy('updated_at', 'desc')->where('user_id', auth()->user()->id)->limit(4)->get()
-        ];
-        return view('users.profile')->with($data);
+        return view('users.profile')->with([
+            'user' => auth()->user()
+        ]);
     }
 
 }

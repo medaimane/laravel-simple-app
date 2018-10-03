@@ -50,6 +50,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    public function getRecentsUpdatedPosts($num)
+    {
+        if($num > 0) {
+            return Post::latest('updated_at')->where('user_id', auth()->user()->id)->limit($num)->get();
+        }
+    }
+
     public function comments() 
     {
         return $this->hasMany('App\Comment');
@@ -57,6 +64,6 @@ class User extends Authenticatable
 
     public function roles()
     {
-
+        return $this->belongsToMany('App\Role');
     }
 }
