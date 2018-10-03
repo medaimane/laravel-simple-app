@@ -48,7 +48,7 @@
 
     <div class="my-3 p-3 bg-white rounded shadow-sm">
         <h5 class="border-bottom border-gray pb-2 mb-0">Your Roles</h5>
-        <div class="row m-auto">
+        <div class="row d-flex justify-content-center m-auto">
             @if (count($user->roles) > 0)
                 @foreach ($user->roles as $role)
                     <div class="col-md-3 card m-2">

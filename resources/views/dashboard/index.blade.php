@@ -98,7 +98,7 @@
                     <div class="p-2 my-2">
                         <h4><u>Your Roles</u></h4>
 
-                        <div class="row m-auto">
+                        <div class="row d-flex justify-content-center m-auto">
                             @if (count(Auth::user()->roles) > 0)
                                 @foreach (Auth::user()->roles as $role)
                                     <div class="col-md-3 card m-2">
