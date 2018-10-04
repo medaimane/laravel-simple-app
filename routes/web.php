@@ -35,6 +35,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('countries', 'CountriesController');
         Route::resource('roles', 'RolesController');
         Route::resource('users', 'UsersController');
+        Route::resource('comments', 'CommentsController');
     });
 });
 

@@ -6,12 +6,64 @@
 
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">
+                {{-- <div class="card-header">
                     <h4>Master Sidebar</h4>
-                </div>
+                </div> --}}
                 <div class="card-body">
-                    <a href="{{route('home')}}">Home</a>
+                    <div class="list-group list-group-flush">
+                        <a href="{{route('dashboard')}}" class="list-group-item list-group-item-action active">Dashbord</a>
+                        <a href="{{route('posts.index')}}" class="list-group-item list-group-item-action">Posts</a>
+                        <a href="{{route('comments.index')}}" class="list-group-item list-group-item-action">Comments</a>
+                        <a href="{{route('countries.index')}}" class="list-group-item list-group-item-action">Countries</a>
+                        <hr>
+                        <a href="{{route('users.profile')}}" class="list-group-item list-group-item-action">Profile</a>
+                        <a href="#" class="list-group-item list-group-item-action disabled">Roles</a>
+                        <a href="#" class="list-group-item list-group-item-action disabled">Settings</a>
+                        <hr>
+                        <a href="{{ route('logout') }}" 
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();" 
+                            class="list-group-item list-group-item-action list-group-item-danger">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
                 </div>
+
+                {{-- <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item active">
+                            <a href="">Home</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('posts.index')}}">Posts</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('comments.index')}}">Comments</a>
+                        </li>
+                        <hr>
+                        <li class="list-group-item">
+                            <a href="#">Profile</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Roles</a>
+                        </li>
+                        <hr>
+                        <li class="list-group-item">
+                            <a href="#">Settings</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div> --}}
             </div>
         </div>
 
@@ -20,7 +72,7 @@
             
             <div class="card">
                 <div class="card-header">
-                    <h3>Dashboard</h3>
+                    <h4>Control panel</h4>
                     <small class="float-right">
                         <img width="10" src="{{asset('storage/others/blue.svg')}}" alt="" class="mr-1 rounded">
                         <a href="{{route('users.profile', Auth::user()->username)}}">Your Profile</a>
