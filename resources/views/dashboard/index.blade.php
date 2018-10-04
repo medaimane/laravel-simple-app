@@ -3,7 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Master Sidebar</h4>
+                </div>
+                <div class="card-body">
+                    <a href="{{route('home')}}">Home</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-9">
             
             <div class="card">
                 <div class="card-header">
