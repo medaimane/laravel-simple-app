@@ -25,10 +25,10 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        $data = [
-            'countries' => Country::OrderBy('name', 'asc')->paginate(2)
-        ];
-        return view('countries.index')->with($datas);
+        return Country::oldest('name')->paginate(2);
+        return view('countries.index')->with([
+            'countries' => Country::oldest('name')->paginate(2)
+        ]);
     }
 
     /**
