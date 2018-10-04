@@ -1,24 +1,30 @@
-<ul>
-    @foreach ($roles as $role)
-        <li>{{$role->name}}</li>
-        <li>{{$role->description}}</li>
-        <hr>
+@extends('layouts.app')
 
-        <div>
-            <ul>
-                @foreach ($role->users as $user)
-                    <li>{{$user->name}}</li>
-
-                    <hr>
-                    <div>
-                        <ul>
-                            @foreach ($user->coutry as $post)
-                                <li>{{$post->title}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endforeach
-            </ul>
-        </div>
-    @endforeach
-</ul>
+@section('content')
+    <div class="container">
+        <ul>
+            @foreach ($roles as $role)
+                <li>{{$role->name}}</li>
+                <li>{{$role->description}}</li>
+                <hr>
+        
+                <div>
+                    <ul>
+                        @foreach ($role->users as $user)
+                            <li>{{$user->name}}</li>
+        
+                            <hr>
+                            <div>
+                                <ul>
+                                    @foreach ($user->posts as $post)
+                                        <li>{{$post->title}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
+        </ul>
+    </div>
+@endsection
