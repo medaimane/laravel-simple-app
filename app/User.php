@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'country_id'
+        'name', 'email', 'username', 'password','country_id'
     ];
 
     /**
@@ -28,29 +28,51 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Attributes Accessors & Mutators
+     */
     public function getNameAttribute($value)
     {
-        return strtoupper($value);
-        // return ucwords($value);
+        // return strtoupper($value);
+        return ucwords($value);
     }
 
-    public function countries() 
+    /**
+     * Countries
+     */
+    public function country() 
     {
-        return $this->hasOne('App\Country');
+        return $this->belongsTo('App\Country');
     }
     
+    /**
+     * Posts
+     */
     public function posts()
     {
         return $this->hasMany('App\Post');
     }
 
+    public function getRecentsUpdatedPosts($num)
+    {
+        if($num > 0) {
+            return Post::latest('updated_at')->where('user_id', auth()->user()->id)->limit($num)->get();
+        }
+    }
+
+    /**
+     * Comments
+     */
     public function comments() 
     {
         return $this->hasMany('App\Comment');
     }
 
+    /**
+     * Roles
+     */
     public function roles()
     {
-
+        return $this->belongsToMany('App\Role');
     }
 }

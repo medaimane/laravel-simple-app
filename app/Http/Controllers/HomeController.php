@@ -9,9 +9,9 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $data = [
-            'posts' => Post::OrderBy('created_at', 'desc')->limit(3)->get()
-        ];
-        return view('home.index')->with($data);
+        // dump('hello dump!');
+        return view('home.index')->with([
+            'posts' => Post::latest('created_at')->limit(3)->get()
+        ]);
     }
 }

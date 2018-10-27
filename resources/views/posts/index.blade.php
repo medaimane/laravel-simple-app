@@ -23,7 +23,7 @@
                     </div>
                 </li>
                 @endforeach
-                <li class="list-group-item">{{$posts->links()}}</li>
+                <li class="list-group-item">{{$posts->links('vendor.pagination.bootstrap-4', ['paginator' => $posts])}}</li>
             </ul>
         @else
             <ul class="list-group">  
